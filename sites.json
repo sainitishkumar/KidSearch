@@ -1,0 +1,14 @@
+{
+"science_buddies":{
+	"url":"https://www.sciencebuddies.org/search?s=",
+	"replace":"+"
+},
+"education":{
+	"url":"https://www.education.com/science-fair/",
+	"replace":"+"
+},
+"youtube":{
+	"url":"https://www.youtube.com/results?search_query=",
+	"replace":"+"
+}
+}

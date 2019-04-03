@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KidSearch</title>
+	<meta charset="utf-8">
+    <style> 
+    	body {padding: 0; margin: 0;} 
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		ul {
+		  list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		  overflow: hidden;
+		  background-color: #333;
+		}
+
+		li {
+		  float: left;
+		}
+
+		li a {
+		  display: block;
+		  color: white;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		}
+
+		li a:hover {
+		  background-color: white;
+		}
+
+		ul {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		}
+	</style>
+		<script src = "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+	<script type="text/javascript">
+		var socket = io.connect('http://127.0.0.1:3000/');
+		var data_req="";
+      socket.on('broadcast',function(data) {
+      	data_req = data;
+      });
+      setTimeout(function(){
+	
+      if(data_req!=""){
+      console.log(data_req);
+      	var yt = document.getElementById('add_yt');
+      	for(var i=0;i<data_req["youtube"][0].length;i++)
+      	{
+      		var temp = 
+      		"<iframe width='200' height='200' src='https://www.youtube.com/embed/"+data_req["youtube"][0][i]+"' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+      		var temp2 = document.createElement('div');
+      		temp2.innerHTML = temp;
+      		yt.appendChild(temp2.firstChild);
+      	}
+
+      	var sci = document.getElementById("add_science");
+      	for(var i=0;i<data_req["science_buddies"][0].length;i++)
+      	{
+      		var link_ele = document.createElement('a');
+      		link_ele.innerHTML = data_req["science_buddies"][1][i]+"\n";
+      		link_ele.href = data_req["science_buddies"][0][i];
+      		sci.appendChild(link_ele);
+      	}
+
+      	var edu = document.getElementById("add_education");
+      	for(var i=0;i<data_req["education"][0].length;i++)
+      	{
+      		var link_ele = document.createElement('a');
+      		link_ele.innerHTML = data_req["education"][1][i]+"\n";
+      		link_ele.href = data_req["education"][0][i];
+      		edu.appendChild(link_ele);
+      	}
+
+      }
+  	},2000);
+	</script>
+</head>
+<body>
+	<div style="height: 50px">
+	<ul>
+	  <li><a class="active" href="#home"> Home </a></li>
+	  <li><a class="active" href="/ideas">Ideas</a></li>
+	</ul>
+	</div>
+	<div>
+		<form action="/show_ideas" method="POST">
+			Enter Class:
+			<br>
+			<input type="text" name="class_no" id="class_no" placeholder="4">
+			<br>
+			Enter Topic Name:
+			<br>
+			<input type="text" name="subject" id="subject" placeholder="Science">
+			<br>
+			<input type="submit" value="Search">
+		</form>
+		<div id="add_science">
+			<h3>Science buddies links:</h3>
+		</div>
+		<div id="add_education">
+			<h3>Education website links:</h3>
+		</div>
+		<div id="add_yt">
+			<h3>Youtube Links:</h3>
+		</div>
+	</div>
+	<div>
+
+	</div>
+	
+</body>
+</html>

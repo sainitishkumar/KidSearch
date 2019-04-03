@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>KidSearch</title>
+	<meta charset="utf-8">
+    <style> 
+    	body {padding: 0; margin: 0;} 
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		ul {
+		  list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		  overflow: hidden;
+		  background-color: #333;
+		}
+
+		li {
+		  float: left;
+		}
+
+		li a {
+		  display: block;
+		  color: white;
+		  text-align: center;
+		  padding: 14px 16px;
+		  text-decoration: none;
+		}
+
+		li a:hover {
+		  background-color: white;
+		}
+
+		ul {
+		  position: fixed;
+		  top: 0;
+		  width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div style="height: 50px">
+	<ul>
+	  <li><a class="active" href="#home"> Home </a></li>
+	  <li><a class="active" href="/ideas">Ideas</a></li>
+	</ul>
+	</div>
+	<div>
+		<form action="/show_topics" method="POST">
+			Enter Class:
+			<br>
+			<input type="text" name="class_no" id="class_no" placeholder="Ex:4">
+			<br>
+			Enter Topic Name:
+			<br>
+			<input type="text" name="subject" id="subject" placeholder="Ex:Volcano">
+			<br>
+			<input type="submit" value="Search">
+		</form>
+	</div>
+	<div>
+
+	</div>
+	
+</body>
+</html>
