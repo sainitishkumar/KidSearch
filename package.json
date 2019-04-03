@@ -1,0 +1,34 @@
+{
+  "name": "kidsearch",
+  "version": "1.0.0",
+  "description": "A web app helping kids with their projects.",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sainitishkumar/KidSearch.git"
+  },
+  "author": "saiNitish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sainitishkumar/KidSearch/issues"
+  },
+  "homepage": "https://github.com/sainitishkumar/KidSearch#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "firebase": "^5.9.2",
+    "jade": "^1.11.0",
+    "jsdom": "^14.0.0",
+    "popups": "^1.1.3",
+    "puppeteer": "^1.14.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "socket.io": "^2.2.0",
+    "youtube-scrape": "^1.0.2"
+  }
+}
